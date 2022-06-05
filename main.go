@@ -31,6 +31,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// 封装返回
 	defer func() {
 		rspbytes, _ := json.MarshalIndent(rsp, "", "  ")
+		w.Header().Set("Content-Type", "application/json")
 		w.Write(rspbytes)
 	}()
 	// 解析请求

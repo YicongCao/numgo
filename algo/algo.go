@@ -1,4 +1,4 @@
-package numgo
+package algo
 
 func Echo(num int) int {
 	return num

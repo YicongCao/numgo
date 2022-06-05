@@ -1,8 +1,7 @@
-package numgo_test
+package algo
 
 import (
 	"fmt"
-	"numgo"
 	"testing"
 )
 
@@ -12,18 +11,18 @@ var (
 
 func TestEcho(t *testing.T) {
 	for c := range cases {
-		fmt.Println(c, numgo.Echo(c))
+		fmt.Println(c, Echo(c))
 	}
 }
 
 func TestFib(t *testing.T) {
 	for c := range cases {
-		fmt.Println(c, numgo.Fib(c))
+		fmt.Println(c, Fib(c))
 	}
 }
 
 func TestSqrt(t *testing.T) {
 	for c := range cases {
-		fmt.Println(c, numgo.Sqrt(c))
+		fmt.Println(c, Sqrt(c))
 	}
 }

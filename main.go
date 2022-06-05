@@ -1,17 +1,18 @@
-package numgo
+package main
 
 import (
 	"encoding/json"
 	"fmt"
 	"net/http"
 	"net/url"
+	"numgo/algo"
 	"strconv"
 )
 
 const (
 	retSuccess     = 0
-	retSystemError = 1
-	retParamError  = 2
+	retSystemError = 11
+	retParamError  = 21
 )
 
 type numreq struct {
@@ -35,7 +36,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// 解析请求
 	switch r.Method {
 	case "GET":
-		u, err := url.Parse(r.URL.Path)
+		u, err := url.Parse(r.RequestURI)
 		if err != nil {
 			rsp.ErrCode = retSystemError
 			rsp.ErrMsg = fmt.Sprintf("parse req failed, err: %v", err)
@@ -60,11 +61,11 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	// 计算逻辑
 	switch req.B {
 	case "echo":
-		rsp.Ref = fmt.Sprintf("%d", Echo(req.A))
+		rsp.Ref = fmt.Sprintf("%d", algo.Echo(req.A))
 	case "fib":
-		rsp.Ref = fmt.Sprintf("%d", Fib(req.A))
+		rsp.Ref = fmt.Sprintf("%d", algo.Fib(req.A))
 	case "sqrt":
-		rsp.Ref = fmt.Sprintf("%d", Sqrt(req.A))
+		rsp.Ref = fmt.Sprintf("%d", algo.Sqrt(req.A))
 	default:
 		rsp.ErrCode = retParamError
 		rsp.ErrMsg = fmt.Sprintf("unknown cmd: %s", req.B)

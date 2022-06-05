@@ -33,6 +33,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		rspbytes, _ := json.MarshalIndent(rsp, "", "  ")
 		w.Header().Set("Content-Type", "application/json")
 		w.Write(rspbytes)
+		fmt.Printf("req: %+v, rsp: %+v\n", req, rsp)
 	}()
 	// 解析请求
 	switch r.Method {

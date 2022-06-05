@@ -1,7 +1,5 @@
 #-*- coding:utf-8 -*-
 
-__author__ = "苦叶子"
-
 import pytest
 # 测试加减法
 class TestDemo:

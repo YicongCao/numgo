@@ -22,6 +22,6 @@
 测试：
 
 ```bash
-go run main.go # 自动服务
+go run main.go # 启动服务
 curl "http://localhost:8080/test?a=9&b=fibx"
 ```

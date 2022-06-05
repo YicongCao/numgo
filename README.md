@@ -22,6 +22,8 @@
 测试：
 
 ```bash
-go run main.go # 启动服务
-curl "http://localhost:8080/test?a=9&b=fibx"
+go run main.go                              # 启动服务
+python install -r requirements.txt          # 安装依赖项
+curl "http://localhost:8080/test?a=9&b=fib" # 测试服务
+pytest pytest/numgo.py                      # pytest 自动测试
 ```
